@@ -1,0 +1,39 @@
+(ExpressProject ""
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\zglue_chipbuilder_symbols.olb"
+        (Type "Schematic Library")))
+    (File ".\zip_design_example.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (NoModify))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector)
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\zip_design_example.dsn")
+      (Path "Design Resources" ".\zip_design_example.dsn" "SCHEMATIC1")
+      (Path "Design Resources" "Library")
+      (Select "Design Resources"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -8 -31 0 200 0 150"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -31 52 674 52 618")
+        (Scroll "0 0")
+        (Zoom "55")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\NICK\DOCUMENTS\GITHUB\ZIP-ORCAD-DESIGN\ZIP_DESIGN_EXAMPLE.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))
