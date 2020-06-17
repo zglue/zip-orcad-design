@@ -30,13 +30,17 @@ Generating the Netlist
 Once the OrCAD schematic is completed, click "View" -> "Command Window". Then, enter the following commands on the interactive TCL shell, replacing the ``<...>`` with the appropriate arguments:
 
 .. code-block:: tcl
-	
-	source <"path\\to\\capNetGen.tcl">
-	capNetGen::generateNetlist <design_name.dsn> <"netlist//system_name.cir">
+    
+    source <"path\\to\\capNetGen.tcl">
+    capNetGen::generateNetlist <design_name.dsn> <"netlist\\system_name.cir">
+
+The GIF below shows this process from OrCAD Capture.
 
 .. note::
 
-	Keep the double quotes and backslashes on arguments specifying a path to escape the backslash characters correctly.
+    Keep the double quotes and backslashes on arguments specifying a path to escape the backslash characters correctly.
+
+.. image:: media/orcad_netlist_gen.gif
 
 
 Netlist Import Specification
