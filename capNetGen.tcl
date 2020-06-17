@@ -1,18 +1,23 @@
 #////////////////////////////////////////
+# Copyright 2020 zGlue, Inc.
+#
+# Licensed under zOH License version 1.0 ("the license") 
+# that is included in the accompanying repository.
+# You may not use this file except in compliance with the License.
+# You may obtain a copy of the license at <zglue.com/oci/zohl1v>
 #
 # AUTHOR(S): Jorge L. Rojas
 #
 # DESCRIPTION: zGlue's OrCAD Capture TCL
-# Utility to create SPICE netlists and
-# netlist constraint files from and OrCAD
-# schematic that ChipBuilder can consume 
-# to create a ZIP system.
+# Utility to create SPICE netlists from 
+# and OrCAD schematic that ChipBuilder 
+# can consume to create a ZIP system.
 #
 #////////////////////////////////////////
 
 package require DboTclWriteBasic 17.2.0
-package provide capZEFGen 1.0
-namespace eval ::capZEFGen {
+package provide capNetGen 1.0
+namespace eval ::capNetGen {
     namespace export searchText
     namespace export replaceText
 }
@@ -22,7 +27,7 @@ namespace eval ::capZEFGen {
 ###   SPICE Netlist Gen   ###
 #############################
 
-proc ::capZEFGen::generateNetlist { pOpenDesignName pOutFile } {
+proc ::capNetGen::generateNetlist { pOpenDesignName pOutFile } {
     # Verify Args
     puts $pOpenDesignName
     puts $pOutFile
@@ -131,14 +136,17 @@ proc ::capZEFGen::generateNetlist { pOpenDesignName pOutFile } {
                 # puts $netlistFP $pininfoLine
                 # puts $netlistFP $netlistLine
 
-                set isSFInst [string match "S1-*" [DboTclHelper_sGetConstCharPtr $lReference]]
-                set isChipletInst [string match "U*" [DboTclHelper_sGetConstCharPtr $lReference]]
+                set isResistor [string match "R*" [DboTclHelper_sGetConstCharPtr $lReference]]
 
-                if {[expr $isSFInst || $isChipletInst]} {
-                    puts "Creating .SUBCKT for [DboTclHelper_sGetConstCharPtr $lReference] instance"
-                    set pSubCktDef [format "%s%s\n%s\n%s\n\n" $pSubCktDef $subcktLine $pininfoLine ".END"]
-                } else {
+                if {$isResistor} {
                     puts "Instance [DboTclHelper_sGetConstCharPtr $lReference] does not need a .SUBCKT model."
+                } else {
+                    set isRepeated [string match "*$subcktLine*" $pSubCktDef]
+                    
+                    if {$isRepeated != 1} {
+                        puts "Creating .SUBCKT for [DboTclHelper_sGetConstCharPtr $lReference] instance"
+                        set pSubCktDef [format "%s%s\n%s\n%s\n\n" $pSubCktDef $subcktLine $pininfoLine ".ENDS"]
+                    }
                 }
 
                 set pNetlist [format "%s\n%s" $pNetlist $netlistLine]
@@ -162,19 +170,4 @@ proc ::capZEFGen::generateNetlist { pOpenDesignName pOutFile } {
     puts $netlistFP "* Total parsed components: [expr $lInstCnt - 1]"
     puts $netlistFP ".END"
     close $netlistFP
-}
-
-
-proc ::capZEFGen::generateConstraints { pOpenDesignName pOutFile } {
-    # Verify Args
-    puts $pOpenDesignName
-    puts $pOutFile
-
-    # init tcl session
-    set lSession $::DboSession_s_pDboSession
-    DboSession -this $lSession
-    set lStatus [DboState]
-    set lNullObj NULL
-
-    # TODO
 }
