@@ -97,12 +97,18 @@ proc ::capNetGen::generateNetlist { pOpenDesignName pOutFile } {
                 $lPlacedInst GetPartValue $lValue
                 $lPlacedInst GetReferenceDesignator $lReference
                 # puts "[DboTclHelper_sGetConstCharPtr $lReference] [DboTclHelper_sGetConstCharPtr $lValue]"
+                set isResistor [string match "R*" [DboTclHelper_sGetConstCharPtr $lReference]]
 
                 # SPICE Netlist Lines
                 set modelName   [string map {" " $pValueDelim} [DboTclHelper_sGetConstCharPtr $lValue]]
                 set subcktLine  ".SUBCKT $modelName"
                 set pininfoLine "*.PININFO"
-                set netlistLine "[DboTclHelper_sGetConstCharPtr $lReference]"
+
+                if {$isResistor} {
+                    set netlistLine "[DboTclHelper_sGetConstCharPtr $lReference]"
+                } else {
+                    set netlistLine "X[DboTclHelper_sGetConstCharPtr $lReference]"
+                }
 
                 # get the first part pin
                 set lPinsIter [$lPlacedInst NewPinsIter $lStatus]
@@ -135,8 +141,6 @@ proc ::capNetGen::generateNetlist { pOpenDesignName pOutFile } {
                 set netlistLine [concat $netlistLine $modelName]
                 # puts $netlistFP $pininfoLine
                 # puts $netlistFP $netlistLine
-
-                set isResistor [string match "R*" [DboTclHelper_sGetConstCharPtr $lReference]]
 
                 if {$isResistor} {
                     puts "Instance [DboTclHelper_sGetConstCharPtr $lReference] does not need a .SUBCKT model."

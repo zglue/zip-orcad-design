@@ -16,16 +16,10 @@
   (GlobalState
     (FileView
       (Path "Design Resources")
-      (Path "Design Resources"
-         "c:\users\nick\documents\github\zip-orcad-design\example\zip_design_example.dsn")
-      (Path "Design Resources"
-         "c:\users\nick\documents\github\zip-orcad-design\example\zip_design_example.dsn"
-         "SCHEMATIC1")
+      (Path "Design Resources" ".\zip_design_example.dsn")
+      (Path "Design Resources" ".\zip_design_example.dsn" "SCHEMATIC1")
       (Path "Design Resources" "Library")
-      (Path "Design Resources" "Library"
-         "c:\users\nick\documents\github\zip-orcad-design\chipbuilder_symbols.olb")
-      (Select "Design Resources"
-         "c:\users\nick\documents\github\zip-orcad-design\example\zip_design_example.dsn"))
+      (Path "Design Resources" "Library" "..\chipbuilder_symbols.olb"))
     (HierarchyView)
     (Doc
       (Type "COrCapturePMDoc")
@@ -36,8 +30,8 @@
       (Type "COrSchematicDoc")
       (Frame
         (Placement "44 0 1 -1 -1 -8 -31 156 830 156 636")
-        (Scroll "0 32")
-        (Zoom "110")
+        (Scroll "0 0")
+        (Zoom "55")
         (Occurrence "/"))
       (Path
          "C:\USERS\NICK\DOCUMENTS\GITHUB\ZIP-ORCAD-DESIGN\EXAMPLE\ZIP_DESIGN_EXAMPLE.DSN")
