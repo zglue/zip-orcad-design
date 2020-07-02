@@ -9,13 +9,13 @@ zGlue Inc, 883 N Shoreline Blvd, C200, Mountain View, CA 94043, USA
 
 Contact: jorge@zglue.com
 
-*Released under zOH License v. 1.0 for distribution and open-source development*
+*Released under Apache 2.0 license for distribution and open-source development*
 
 
 Overview
 ========
 
-This repository contains a TCL script that generates a valid SPICE netlist from an OrCAD schematic that can be directly imported in ChipBuilder, an OrCAD ChipBuilder symbol library, and an example OrCAD schematic with it's importable netlist. Besides having a working example system that can be used to test the schematic import process, the repository also serves as a template and tutorial for creating ZIP-based schematics with OrCAD's schematic capture tool. The TCL script, ChipBuilder symbol library, and example schematic files in this repository are being released by zGlue Inc under the zGlue Open Hardware V1 license.
+This repository contains a TCL script that generates a valid SPICE netlist from an OrCAD schematic that can be directly imported in ChipBuilder, an OrCAD ChipBuilder symbol library, and an example OrCAD schematic with it's importable netlist. Besides having a working example system that can be used to test the schematic import process, the repository also serves as a template and tutorial for creating ZIP-based schematics with OrCAD's schematic capture tool. The TCL script, ChipBuilder symbol library, and example schematic files in this repository are being released by zGlue Inc under Apache 2.0 license.
 
 
 Creating a Schematic
@@ -56,4 +56,4 @@ What's Included?
 * zGlue's ChipBuilder symbols OrCAD library
 * OrCAD example project and design files
 * SPICE netlist example generated from schematic
-* zGlue Open Hardware License V1 (zOH V1 License)
+* Apache 2.0 License

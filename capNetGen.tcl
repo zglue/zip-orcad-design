@@ -1,14 +1,21 @@
 #////////////////////////////////////////
-# Copyright 2020 zGlue, Inc.
+# Copyright 2020 zGlue Inc
 #
-# Licensed under zOH License version 1.0 ("the license") 
-# that is included in the accompanying repository.
-# You may not use this file except in compliance with the License.
-# You may obtain a copy of the license at <zglue.com/oci/zohl1v>
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
 #
-# AUTHOR(S): Jorge L. Rojas
+#  http://www.apache.org/licenses/LICENSE-2.0
 #
-# DESCRIPTION: zGlue's OrCAD Capture TCL
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Author(S): Jorge L. Rojas
+#
+# Description: zGlue's OrCAD Capture TCL
 # Utility to create SPICE netlists from 
 # and OrCAD schematic that ChipBuilder 
 # can consume to create a ZIP system.
